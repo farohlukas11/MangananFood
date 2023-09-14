@@ -171,7 +171,6 @@ class ImageSliderBanner extends StatelessWidget {
 
         return Container(
           height: 220,
-          width: 370,
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(20)),
             image: food.listImageUrl![0].imageUrl != null &&

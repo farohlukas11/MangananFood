@@ -24,7 +24,10 @@ class FavoritePage extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 20,
+        ),
         child: ListView.builder(
           itemCount: listFavorite.length,
           itemBuilder: (context, index) {
@@ -67,7 +70,8 @@ class FavoritePage extends StatelessWidget {
                                       foodFavorite.listImageUrl![0].imageUrl
                                           .toString(),
                                     )
-                                  : const AssetImage('images/images_onboard1.png')
+                                  : const AssetImage(
+                                          'images/images_onboard1.png')
                                       as ImageProvider,
                             ),
                           ),
@@ -96,7 +100,8 @@ class FavoritePage extends StatelessWidget {
                               ),
                               Text(
                                 foodFavorite.priceFood != null
-                                    ? CurrencyFormat.convertToIdr(foodFavorite.priceFood)
+                                    ? CurrencyFormat.convertToIdr(
+                                        foodFavorite.priceFood)
                                     : 'Not Available',
                                 style: const TextStyle(
                                   color: Colors.black,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:submission_pemula/home_screen.dart';
 import 'package:submission_pemula/model/food_model.dart';
 import 'package:submission_pemula/utils/currency_formatter.dart';
@@ -136,8 +137,8 @@ class _CartPageState extends State<CartPage> {
                                   ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                         minimumSize: const Size(55, 30),
-                                        maximumSize: const Size(55, 30),
-                                        primary: Colors.teal.shade700),
+                                        backgroundColor: Colors.teal.shade700,
+                                        maximumSize: const Size(55, 30)),
                                     onPressed: () {
                                       setState(() {
                                         if (foodFavorite.totalPick <= 1) {
@@ -166,8 +167,8 @@ class _CartPageState extends State<CartPage> {
                                   ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       minimumSize: const Size(55, 30),
+                                      backgroundColor: Colors.teal.shade700,
                                       maximumSize: const Size(55, 30),
-                                      primary: Colors.teal.shade700,
                                     ),
                                     onPressed: () {
                                       setState(() {
@@ -239,7 +240,7 @@ class _CartPageState extends State<CartPage> {
                       child: getAllPriceFood(list: listFavorite) != 0
                           ? ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.teal.shade700,
+                                backgroundColor: Colors.teal.shade700,
                               ),
                               onPressed: () {
                                 Alert(

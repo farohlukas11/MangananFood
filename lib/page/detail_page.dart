@@ -4,16 +4,14 @@ import 'package:submission_pemula/model/food_model.dart';
 import 'package:submission_pemula/utils/currency_formatter.dart';
 
 class DetailPage extends StatelessWidget {
-  final foodData;
+  final FoodModel foodData;
 
   const DetailPage({Key? key, required this.foodData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: ListView(
         children: [
           Stack(
             children: [
@@ -267,16 +265,16 @@ class _AddCartButtonState extends State<AddCartButton> {
       child: isAddCart
           ? ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Colors.teal.shade700,
+                backgroundColor: Colors.teal.shade700,
               ),
               onPressed: () {
                 setState(() {
                   _isAddCart = !isAddCart;
                 });
               },
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
                     'Masukkan ke Cart',
                     style: TextStyle(fontSize: 20),

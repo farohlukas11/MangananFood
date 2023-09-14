@@ -19,10 +19,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 80),
-          child: SizedBox(
+      body: ListView(
+        children: [
+          Container(
+            padding: const EdgeInsets.only(bottom: 80),
             height: 750,
             child: PageView(
               controller: controller,
@@ -56,7 +56,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ],
             ),
           ),
-        ),
+        ],
       ),
       bottomSheet: isLastPage
           ? Padding(
@@ -158,47 +158,54 @@ class BuildOnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: color,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            urlImage,
-            fit: BoxFit.cover,
-            width: double.infinity,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Text(
-              title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.blueAccent,
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-              ),
+    return ListView(
+      children: [
+        Center(
+          child: Container(
+            margin: const EdgeInsets.symmetric(vertical: 20),
+            color: color,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  urlImage,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Text(
+                    title,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Colors.blueAccent,
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: 280,
+                  child: Text(
+                    subTitle,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          SizedBox(
-            width: 280,
-            child: Text(
-              subTitle,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 20,
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
