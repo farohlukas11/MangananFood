@@ -48,103 +48,97 @@ class DetailPage extends StatelessWidget {
             height: 10,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              foodData.nameFood != null
-                  ? foodData.nameFood.toString()
-                  : 'Coming Soon',
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w700,
-                color: Colors.black,
-              ),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  foodData.priceFood != null
-                      ? CurrencyFormat.convertToIdr(foodData.priceFood)
-                      : 'Not Available',
+                  foodData.nameFood != null
+                      ? foodData.nameFood.toString()
+                      : 'Coming Soon',
                   style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
                     color: Colors.black,
                   ),
                 ),
-                Text(
-                  foodData.totalAvailable != null
-                      ? 'Tersedia ${foodData.totalAvailable}'
-                      : 'Kosong',
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      foodData.priceFood != null
+                          ? CurrencyFormat.convertToIdr(foodData.priceFood)
+                          : 'Not Available',
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Text(
+                      foodData.totalAvailable != null
+                          ? 'Tersedia ${foodData.totalAvailable}'
+                          : 'Kosong',
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              'Deskripsi',
-              textAlign: TextAlign.justify,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(10),
-            margin: const EdgeInsets.symmetric(horizontal: 20),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.teal.shade700, width: 1),
-              borderRadius: const BorderRadius.all(
-                Radius.circular(20),
-              ),
-            ),
-            child: Text(
-              foodData.descriptionFood != null
-                  ? foodData.descriptionFood.toString()
-                  : 'Description not available',
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w400,
-                fontSize: 18,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Row(
-              children: [
-                const Icon(Icons.star),
                 const SizedBox(
-                  width: 5,
+                  height: 20,
                 ),
-                Text(
-                  foodData.ratingFood != null
-                      ? 'Rating : ${foodData.ratingFood.toString()}'
-                      : 'Rating : 0.0',
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
+                const Text(
+                  'Deskripsi',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.teal.shade700, width: 1),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  child: Text(
+                    foodData.descriptionFood != null
+                        ? foodData.descriptionFood.toString()
+                        : 'Description not available',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+                Row(
+                  children: [
+                    const Icon(Icons.star),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      foodData.ratingFood != null
+                          ? 'Rating : ${foodData.ratingFood.toString()}'
+                          : 'Rating : 0.0',
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 20,
+                  ),
+                  child: AddCartButton(),
+                ),
               ],
-            ),
-          ),
-          const Expanded(
-            child: Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: Padding(
-                padding: EdgeInsets.all(20.0),
-                child: AddCartButton(),
-              ),
             ),
           ),
         ],
